@@ -4,10 +4,11 @@ import time
 import random
 
 
-def text_sel():
+def text_sel():  #make a better selector
     with open('txt.txt', 'r') as f:
         lines = f.readlines()
         return random.choice(lines).strip()
+
 
 def screen_module(stdscr):
     stdscr.clear()
@@ -34,7 +35,7 @@ def typing_module(stdscr):
     current_text = []
     cpm = 0
     start_time = time.time()
-    stdscr.nodelay(True)
+    stdscr.nodelay(True)  # framerate issue persists
 
     while True:
         time_now = max(time.time() - start_time, 1)
